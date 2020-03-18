@@ -63,9 +63,8 @@ void multiplication()
         printf("\n------------------------------------------------\n");
     }
 
-    // Length of numbers
+    // Put the longer number first
     char temp[MAXL];
-
     if (strlen(n1) < strlen(n2))
     {
         strcpy(temp, n1);
@@ -73,20 +72,32 @@ void multiplication()
         strcpy(n2, temp);
     }
 
+    // Length of numbers
     int L1 = strlen(n1);
     int L2 = strlen(n2);
-    printf(" %s", n1);
 
     int n=0, m;
-    int lent = 2* ((L1 >= L2) ? L1 : L2) ; // Finding the larger number and multiplying it by 2.
+    int lent = 2*L1 ; // The resultant number length is at most 2 times the first number.
     int carry=0, summ=0;
 
     // steps of calculation, like using pen and paper
-    int step[L2][2*L1];
-    memset(step, 0, L2*2*L1*sizeof(int));
+    int step[L2][lent];
+    memset(step, 0, L2*lent*sizeof(int));
     // answer will be stored in result
     int result[2*L1];
-    memset(step, 0, 2*L1*sizeof(int));
+    memset(step, 0, lent*sizeof(int));
+
+    // String of numbers to integer numbers
+    int num1[L1];
+    int num2[L2];
+    for (int i=0; i<L1; i++)
+    {
+         num1[i] = n1[i] - '0'; // Converts char to integer
+    }
+    for (int i=0; i<L2; i++)
+    {
+         num1[i] = n2[i] - '0'; // Converts char to integer
+    }
 
 
 }
