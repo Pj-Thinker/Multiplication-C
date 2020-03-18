@@ -40,18 +40,18 @@ void multiplication()
     // use sample numbers or input numbers as string
     char choice;
     printf("Do you want to use sample numbers?\n"
-           "~~~> Yes: y (or any letter)\n"
-           "~~~> No: n\nYour choice:");
+           "~~~> Yes: y/Y\n"
+           "~~~> No: n/N\nYour choice:");
     scanf(" %c", &choice);
 
     // enter numbers that you want
-    if (choice == 'n')
+    if (choice == 'n' || 'N')
     {
         printf("Please enter the first number:\n");
         scanf("%s", n1);
         printf("Please enter the second number:\n");
         scanf("%s", n2);
-    } else
+    } else if (choice == 'y' || 'Y')
     {
         // sample numbers
         char n1[] = "91111111111111111111111111111111111111111111111112";
