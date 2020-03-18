@@ -43,15 +43,15 @@ void multiplication()
            "~~~> Yes: y/Y\n"
            "~~~> No: n/N\nYour choice:");
     scanf(" %c", &choice);
+    printf("%c", choice);
 
-    // enter numbers that you want
-    if (choice == 'n' || 'N')
+    if (choice == 'n' || choice =='N') // enter numbers that you want
     {
         printf("Please enter the first number:\n");
         scanf("%s", n1);
         printf("Please enter the second number:\n");
         scanf("%s", n2);
-    } else if (choice == 'y' || 'Y')
+    } else if (choice == 'y' || choice == 'Y')
     {
         // sample numbers
         char n1[] = "91111111111111111111111111111111111111111111111112";
@@ -61,6 +61,9 @@ void multiplication()
         printf("%s\n", n1);
         printf("%s\n", n2);
         printf("\n------------------------------------------------\n");
+    } else
+    {
+        multiplication();
     }
 
     // Put the longer number first
