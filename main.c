@@ -84,7 +84,7 @@ void multiplication()
     int step[L2][lent];
     memset(step, 0, L2*lent*sizeof(int));
     // answer will be stored in result
-    int result[2*L1];
+    int result[lent];
     memset(step, 0, lent*sizeof(int));
 
     // String of numbers to integer numbers
@@ -92,17 +92,17 @@ void multiplication()
     int num2[L2];
     for (int i=0; i<L1; i++)
     {
-         num1[i] = n1[i] - '0'; // Converts char to integer
+        num1[i] = n1[i] - '0'; // Converts char to integer
     }
     for (int i=0; i<L2; i++)
     {
-         num1[i] = n2[i] - '0'; // Converts char to integer
+        num2[i] = n2[i] - '0'; // Converts char to integer
     }
 
     // Multiplication by algorithm.
     for (int i=L2-1; i>=0; i--)
     {
-        m = lent;
+        m = lent-1;
         for (int j=L1-1; j>=0; j--)
         {
             step[n][m] = (carry + (num2[i] * num1[j])) % 10;
@@ -119,6 +119,16 @@ void multiplication()
         lent --;
     }
     puts("");
+
+    // Print steps of calculations
+    // from right, each digit of second number multiplied to first number
+    for (int i=0; i<L2; i++)
+    {
+        for (int j=0; j<2*L1; j++)
+        printf("%d", step[i][j]);
+        puts(""); // Goes to the next line - i++
+    }
+    puts("______________________________________________________________________");
 
 
 }
