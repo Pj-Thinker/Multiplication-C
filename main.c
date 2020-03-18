@@ -99,5 +99,26 @@ void multiplication()
          num1[i] = n2[i] - '0'; // Converts char to integer
     }
 
+    // Multiplication by algorithm.
+    for (int i=L2-1; i>=0; i--)
+    {
+        m = lent;
+        for (int j=L1-1; j>=0; j--)
+        {
+            step[n][m] = (carry + (num2[i] * num1[j])) % 10;
+            carry = (carry + num2[i] * num1[j]) / 10;
+            m --;
+
+            if (m==lent-L1 && carry != 0) // L1 digits are passed. is there still carry? if yes insert it.
+            {
+                step[n][m] = carry;
+                carry=0;
+            }
+        }
+        n ++;
+        lent --;
+    }
+    puts("");
+
 
 }
