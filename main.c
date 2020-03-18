@@ -130,5 +130,47 @@ void multiplication()
     }
     puts("______________________________________________________________________");
 
+    // Sum of steps
+    carry = 0;
+    for (int i=2*L1-1; i>=0; i--) // F\Starting from right digit of each line
+    {
+        for (int j=0; j<L2; j++) // Starting from first line
+        {
+            summ = summ + carry + step[j][i];
+            carry=0; // In each column Carry should be added to summ for once.
+        }
 
+        if (summ >= 10)
+        {
+            carry = summ / 10;
+            result[i] = summ % 10;
+        }
+
+        else
+        {
+            carry = 0;
+            result[i] = summ ;
+        }
+        summ = 0;
+    }
+
+    // Print the result
+    printf("The answer is:\n");
+    int flag1=0;
+    for(int i=0; i<2*L1; i++)
+    { //To remove redundant zeros at the beginning of the number
+        if (result[i] == 0 && flag1 == 0)
+            continue;
+        else
+        {
+            printf("%d", result[i]);
+            flag1 =1; // Wherever the numbers began, this should capture them.
+        }
+
+    }
+    // if the result is zero or flag1=0
+    if (flag1 == 0)
+        printf("0");
+
+    return 0;
 }
