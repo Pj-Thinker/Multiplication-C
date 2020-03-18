@@ -51,8 +51,6 @@ void multiplication()
         scanf("%s", n1);
         printf("Please enter the second number:\n");
         scanf("%s", n2);
-        printf("%s\n", n1);
-        printf("%s\n", n2);
     } else
     {
         // sample numbers
@@ -66,5 +64,12 @@ void multiplication()
     }
 
     // Length of numbers
+    int L1 = strlen(n1);
+    int L2 = strlen(n2);
+
+    int n = 0, m;
+    int lent = (L1 >= L2) ? L1 : L2 ;
+    printf(" %d", lent);
+
 
 }
