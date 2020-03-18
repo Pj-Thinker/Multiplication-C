@@ -64,12 +64,29 @@ void multiplication()
     }
 
     // Length of numbers
+    char temp[MAXL];
+
+    if (strlen(n1) < strlen(n2))
+    {
+        strcpy(temp, n1);
+        strcpy(n1, n2);
+        strcpy(n2, temp);
+    }
+
     int L1 = strlen(n1);
     int L2 = strlen(n2);
+    printf(" %s", n1);
 
-    int n = 0, m;
-    int lent = (L1 >= L2) ? L1 : L2 ;
-    printf(" %d", lent);
+    int n=0, m;
+    int lent = 2* ((L1 >= L2) ? L1 : L2) ; // Finding the larger number and multiplying it by 2.
+    int carry=0, summ=0;
+
+    // steps of calculation, like using pen and paper
+    int step[L2][2*L1];
+    memset(step, 0, L2*2*L1*sizeof(int));
+    // answer will be stored in result
+    int result[2*L1];
+    memset(step, 0, 2*L1*sizeof(int));
 
 
 }
