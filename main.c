@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAXL 50
+#define MAXL 101
 //Function
 void multiplication();
 
@@ -35,35 +35,39 @@ int main()
 void multiplication()
 {
     char n1[MAXL];
+    memset(n1, 0, MAXL*sizeof(char));
     char n2[MAXL];
+    memset(n2, 0, MAXL*sizeof(char));
 
     // use sample numbers or input numbers as string
     char choice;
     printf("Do you want to use sample numbers?\n"
            "~~~> Yes: y/Y\n"
-           "~~~> No: n/N\nYour choice:");
+           "~~~> No: n/N\n"
+           "Your choice:");
     scanf(" %c", &choice);
-    printf("%c", choice);
 
-    if (choice == 'n' || choice =='N') // enter numbers that you want
+    if (choice == 'n' || choice =='N') // Enter numbers that you want
     {
         printf("Please enter the first number:\n");
-        scanf("%s", n1);
+        scanf(" %s", n1);
         printf("Please enter the second number:\n");
-        scanf("%s", n2);
-    } else if (choice == 'y' || choice == 'Y')
+        scanf(" %s", n2);
+    }
+    else if (choice == 'y' || choice == 'Y')
     {
-        // sample numbers
-        char n1[] = "91111111111111111111111111111111111111111111111112";
-        char n2[] = "00000000000000000000000000000000000000000000000012";
+        // Sample numbers
+        strcpy(n1, "11111111111111111111111111111111111111111111111122");
+        strcpy(n2, "00000000000000000000000000000000000000000000000012");
 
         printf("\n-----------------Sample numbers-----------------\n");
         printf("%s\n", n1);
         printf("%s\n", n2);
         printf("\n------------------------------------------------\n");
-    } else
+    }
+    else
     {
-        multiplication();
+        return 0;
     }
 
     // Put the longer number first
@@ -112,7 +116,7 @@ void multiplication()
             carry = (carry + num2[i] * num1[j]) / 10;
             m --;
 
-            if (m==lent-L1 && carry != 0) // L1 digits are passed. is there still carry? if yes insert it.
+            if (m==lent-L1-1 && carry != 0) // L1 digits are passed. is there still carry? if yes insert it.
             {
                 step[n][m] = carry;
                 carry=0;
