@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MAXL 101
+#define MAXL 100
 //Function
 void multiplication();
 
@@ -34,9 +34,9 @@ int main()
 
 void multiplication()
 {
-    char n1[MAXL];
+    char n1[MAXL+1]; // Plus one is for null operator!
     memset(n1, 0, MAXL*sizeof(char));
-    char n2[MAXL];
+    char n2[MAXL+1];
     memset(n2, 0, MAXL*sizeof(char));
 
     // use sample numbers or input numbers as string
